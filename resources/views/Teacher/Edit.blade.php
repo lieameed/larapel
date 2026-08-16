@@ -30,7 +30,7 @@
         <label for="gender" class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Jenis Kelamin</label>
         <select id="gender" name="gender"
             class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
-            <option value="Laki-Laki" {{ $teacher['gender'] == 'Laki-Laki' ? 'selected' : '' }}>Laki-laki</option>
+            <option value="Laki-laki" {{ $teacher['gender'] == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
             <option value="Perempuan" {{ $teacher['gender'] == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
         </select>
     </div>
@@ -42,8 +42,8 @@
     </div>
 
     <div>
-        <label for="phone" class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">No. Telepon</label>
-        <input type="text" id="phone" name="phone" value="{{ $teacher['phone'] }}"
+        <label for="phone_number" class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">No. Telepon</label>
+        <input type="text" id="phone_number" name="phone_number" value="{{ $teacher['phone_number'] }}"
             class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
     </div>
 
@@ -52,7 +52,7 @@
         <select id="status" name="status"
             class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
             <option value="Aktif" {{ $teacher['status'] == 'Aktif' ? 'selected' : '' }}>Aktif</option>
-            <option value="Non-Aktif" {{ $teacher['status'] == 'Non-Aktif' ? 'selected' : '' }}>Non-Aktif</option>
+            <option value="Tidak Aktif" {{ $teacher['status'] == 'Tidak Aktif' ? 'selected' : '' }}>Tidak Aktif</option>
         </select>
     </div>
 
