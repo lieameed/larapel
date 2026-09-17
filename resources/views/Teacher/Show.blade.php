@@ -8,7 +8,7 @@
     Terdapat kesalahan ketika menambahkan data siswa baru ke dalam sistem sekolah   
 </x-alert>
 
-<a href="{{ route('Teacher.index') }}" class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Data Guru</a>
+<a href="{{ route('teachers.index') }}" class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Data Guru</a>
 
 <div class="mt-3 border border-[#E5E3DB] bg-white">
     <div class="flex items-start justify-between border-b border-[#E5E3DB] bg-[#FCFBF8] px-8 py-6">
@@ -17,7 +17,7 @@
             <h1 class="font-display text-3xl font-semibold text-[#16213A]">{{ $teacher['name'] }}</h1>
             <p class="mt-1 font-mono text-xs text-slate-500">NIP {{ $teacher['nip'] }}</p>
         </div>
-        <a href="{{ route('Teacher.edit', $teacher['id']) }}"
+        <a href="{{ route('teachers.edit', $teacher['id']) }}"
             class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">Ubah</a>
     </div>
 
@@ -40,7 +40,7 @@
         </div>
         <div class="flex justify-between px-8 py-4">
             <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">No. Telepon</dt>
-            <dd class="font-medium text-[#16213A]">{{ $teacher['phone'] }}</dd>
+            <dd class="font-medium text-[#16213A]">{{ $teacher['phone_number'] }}</dd>
         </div>
         <div class="flex justify-between px-8 py-4">
             <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Status</dt>
@@ -49,8 +49,8 @@
     </dl>
 
     <div class="flex justify-end gap-4 border-t border-[#E5E3DB] px-8 py-5">
-        <a href="{{ route('Teacher.index') }}" class="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#16213A]">Kembali</a>
-        <form action="{{ route('Teacher.destroy', $teacher['id']) }}" method="POST" onsubmit="return confirm('Hapus data guru ini?')">
+        <a href="{{ route('teachers.index') }}" class="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#16213A]">Kembali</a>
+        <form action="{{ route('teachers.destroy', $teacher['id']) }}" method="POST" onsubmit="return confirm('Hapus data guru ini?')">
             @csrf
             @method('DELETE')
             <button type="submit"

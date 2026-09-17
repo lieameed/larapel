@@ -96,6 +96,6 @@ class TeacherController extends Controller
 
     public function destroy(string $id)
     {
-        return "menghapus guru dengan id : {$id}";
+       return "menghapus guru dengan id : {$id}";
     }
 }

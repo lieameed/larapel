@@ -13,7 +13,7 @@
         <p class="mb-1 text-[11px] uppercase tracking-[0.2em] text-[#A16207]">Tahun Ajaran 2025/2026</p>
         <h1 class="font-display text-3xl font-semibold text-[#16213A]">Daftar Kelas</h1>
     </div>
-    <a href="{{ route('Major.create') }}" class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">
+    <a href="{{ route('majors.create') }}" class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">
         Catat Kelas Baru
     </a>
 </div>
@@ -41,16 +41,18 @@
                     {{ $major['name'] }}
                 </td>
                 <td class="px-5 py-4">
-                    {{ $major['description'] }}z
+                    {{ $major['description'] }}
                 </td>
                 <td class="px-5 py-4">
                     <div class="flex justify-end gap-4 text-xs font-medium">
-                        <a href="{{ route('Major.show', $major['id']) }}" class="text-[#16213A] hover:text-[#A16207]">Lihat</a>
-                        <a href="{{ route('Major.show', $major['id']) }}" class="text-[#16213A] hover:text-[#A16207]">Ubah</a>
-                        <form action="" method="POST"
-                            onsubmit="return confirm('Hapus data siswa ini dari buku induk?')">
-
-                            <button type="submit" class="text-red-700 hover:text-red-900">Hapus</button>
+                        <a href="{{ route('majors.show', $major['id']) }}" class="text-[#16213A] hover:text-[#A16207]">Lihat</a>
+                        <a href="{{ route('majors.show', $major['id']) }}" class="text-[#16213A] hover:text-[#A16207]">Ubah</a>
+                        <form action="{{ route('majors.destroy', $major['id']) }}" method="POST" class="inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="text-red-700 hover:text-red-900" onclick="return confirm('Yakin ingin menghapus?')">
+                                Hapus
+                            </button>
                         </form>
                     </div>
                 </td>

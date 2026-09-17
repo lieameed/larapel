@@ -52,10 +52,12 @@
                     <div class="flex justify-end gap-4 text-xs font-medium">
                         <a href="{{ route('students.show', $student['id']) }}" class="text-[#16213A] hover:text-[#A16207]">Lihat</a>
                         <a href="{{ route('students.show', $student['id']) }}" class="text-[#16213A] hover:text-[#A16207]">Ubah</a>
-                        <form action="" method="POST"
-                            onsubmit="return confirm('Hapus data siswa ini dari buku induk?')">
-
-                            <button type="submit" class="text-red-700 hover:text-red-900">Hapus</button>
+                        <form action="{{ route('students.destroy', $student['id']) }}" method="POST" class="inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="text-red-700 hover:text-red-900" onclick="return confirm('Yakin ingin menghapus?')">
+                                Hapus
+                            </button>
                         </form>
                     </div>
                 </td>

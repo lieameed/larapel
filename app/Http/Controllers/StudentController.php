@@ -67,7 +67,7 @@ class StudentController extends Controller
         return "siswa dengan id : {$id} sudah diupdate";
     }
 
-    public function delete(string $id){
+    public function destroy(string $id){
         return "menghapus siswa dengan id : {$id}";
     }
 }

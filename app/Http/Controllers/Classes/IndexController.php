@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\SchoolClass;
+namespace App\Http\Controllers\Classes;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -15,19 +15,19 @@ class IndexController extends Controller
                 'id' => 1,
                 'name' => 'XII AKL 1',
                 'grade' => 'XII',
-                'major' => 'AKL',
-                'homeroom_teacher' => 'Budi Santoso'
+                'major_id' => 'AKL',
+                'teacher_id' => 'Budi Santoso'
             ],
             [
                 'id' => 2,
                 'name' => 'XII TKJ 1',
                 'grade' => 'XII',
-                'major' => 'TKJ',
-                'homeroom_teacher' => 'Siti Aminah'
+                'major_id' => 'TKJ',
+                'teacher_id' => 'Siti Aminah'
             ]
         ];
 
-        return view('Classes.index', [
+        return view('classes.index', [
             'title' => $title,
             'classes' => $classes
         ]);

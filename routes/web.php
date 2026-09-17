@@ -1,12 +1,12 @@
 <?php
 
-use App\Http\Controllers\SchoolClass\IndexController;
-use App\Http\Controllers\SchoolClass\ShowController;
-use App\Http\Controllers\SchoolClass\CreateController;
-use App\Http\Controllers\SchoolClass\EditController;
-use App\Http\Controllers\SchoolClass\StoreController;
-use App\Http\Controllers\SchoolClass\UpdateController;
-use App\Http\Controllers\SchoolClass\DestroyController;
+use App\Http\Controllers\Classes\IndexController;
+use App\Http\Controllers\Classes\ShowController;
+use App\Http\Controllers\Classes\CreateController;
+use App\Http\Controllers\Classes\EditController;
+use App\Http\Controllers\Classes\StoreController;
+use App\Http\Controllers\Classes\UpdateController;
+use App\Http\Controllers\Classes\DestroyController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\MajorController;
@@ -77,7 +77,7 @@ Route::delete('/{id}', [StudentController::class, 'destroy'])->name('destroy');
 });
 
 // management data siswa
-Route::name('Teacher.')->prefix('Teacher')->group(function(){ // -> ada beberpa bagian yang penting disini, guna prefix agar nama web gaperlu diketik ulang misal "/students/..." jadi "/...", dan fucntion name yang membuat kita tidak perlu tambahkan students. di function name masing masing, serta group buat ngegroup/ngegabungkan keseluruhannya
+Route::name('teachers.')->prefix('teachers')->group(function(){ // -> ada beberpa bagian yang penting disini, guna prefix agar nama web gaperlu diketik ulang misal "/students/..." jadi "/...", dan fucntion name yang membuat kita tidak perlu tambahkan students. di function name masing masing, serta group buat ngegroup/ngegabungkan keseluruhannya
     // halaman daftar siswa
 
 // Route::get('/', function() { // -> ciptakan new page untuk web dengan menambahkan /students disampingnya
@@ -137,7 +137,7 @@ Route::delete('/{id}', [TeacherController::class, 'destroy'])->name('destroy');
 });
 
 // // manajemen data guru (invokable)
-Route::name('SchoolClass.')->prefix('SchoolClass')->group(function(){ 
+Route::name('Classes.')->prefix('Classes')->group(function(){ 
 // halaman daftar guru
 Route::get('/', IndexController::class)->name('index');
 
@@ -146,8 +146,6 @@ Route::get('/create', CreateController::class)->name('create');
 
 // halaman detail guru
 Route::get('/{id}',ShowController::class)->name('show');
-
-
 
 // halaman guru
 Route::get('/{id}/edit', EditController::class)->name('edit');
@@ -162,4 +160,4 @@ Route::put('/{id}', UpdateController::class)->name('update');
 Route::delete('/{id}', DestroyController::class)->name('destroy');
 });
 
-Route::resource('Major', MajorController::class);
+Route::resource('majors', MajorController::class);
