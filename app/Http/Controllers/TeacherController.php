@@ -10,7 +10,7 @@ class TeacherController extends Controller
     {
         return [
             [
-                'id' => 1,
+                'Teacher_id' => 1,
                 'nip' => '198501012024',
                 'name' => 'Budi Santoso',
                 'gender' => 'Laki-laki',
@@ -19,7 +19,7 @@ class TeacherController extends Controller
                 'status' => 'Aktif',
             ],
             [
-                'id' => 2,
+                'Teacher_id' => 2,
                 'nip' => '198703152024',
                 'name' => 'Siti Aminah',
                 'gender' => 'Perempuan',

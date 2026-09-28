@@ -13,7 +13,7 @@
         <p class="mb-1 text-[11px] uppercase tracking-[0.2em] text-[#A16207]">Tahun Ajaran 2025/2026</p>
         <h1 class="font-display text-3xl font-semibold text-[#16213A]">Daftar Siswa</h1>
     </div>
-    <a href="{{ route('Classes.create') }}" class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">
+    <a href="{{ route('classes.create') }}" class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">
         Catat Siswa Baru
     </a>
 </div>
@@ -42,16 +42,16 @@
                     {{ $classe['grade'] }}
                 </td>
                 <td class="px-5 py-4">
-                    {{ $classe['major_id'] }}
+                    {{ $classe['major'] }}
                 </td>
                 <td class="px-5 py-4">
-                    {{ $classe['teacher_id'] }}
+                    {{ $classe['teacher'] }}
                 </td>
                 <td class="px-5 py-4">
                     <div class="flex justify-end gap-4 text-xs font-medium">
-                        <a href="{{ route('Classes.show', $classe['id']) }}" class="text-[#16213A] hover:text-[#A16207]">Lihat</a>
-                        <a href="{{ route('Classes.show', $classe['id']) }}" class="text-[#16213A] hover:text-[#A16207]">Ubah</a>
-                        <form action="{{ route('Classes.destroy', $classe['id']) }}" method="POST" class="inline">
+                        <a href="{{ route('classes.show', $classe['id']) }}" class="text-[#16213A] hover:text-[#A16207]">Lihat</a>
+                        <a href="{{ route('classes.show', $classe['id']) }}" class="text-[#16213A] hover:text-[#A16207]">Ubah</a>
+                        <form action="{{ route('classes.destroy', $classe['id']) }}" method="POST" class="inline">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="text-red-700 hover:text-red-900" onclick="return confirm('Yakin ingin menghapus?')">

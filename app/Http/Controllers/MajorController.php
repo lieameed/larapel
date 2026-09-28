@@ -10,19 +10,19 @@ class MajorController extends Controller
     {
         return [
             [
-                'id' => 1,
+                'Major_id' => 1,
                 'code' => 'AKL',
                 'name' => 'Akuntansi dan Keuangan Lembaga',
                 'description' => 'Program keahlian yang membekali murid dengan kompetensi pencatatan dan pelaporan keuangan.',
             ],
             [
-                'id' => 2,
+                'Major_id' => 2,
                 'code' => 'TKJ',
                 'name' => 'Teknik Komputer dan Jaringan',
                 'description' => 'Program keahlian yang membekali murid dengan kompetensi instalasi, konfigurasi, dan pemeliharaan jaringan komputer.',
             ],
             [
-                'id' => 3,
+                'Major_id' => 3,
                 'code' => 'BD',
                 'name' => 'Bisnis Digital',
                 'description' => 'Program keahlian yang membekali murid dengan kompetensi pemasaran dan pengelolaan bisnis berbasis digital.',

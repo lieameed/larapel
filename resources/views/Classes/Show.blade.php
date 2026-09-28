@@ -4,7 +4,7 @@
 
 @section('content')
 
-<a href="{{ route('Classes.index') }}" class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Data Kelas</a>
+<a href="{{ route('classes.index') }}" class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Data Kelas</a>
 
 <div class="mt-3 border border-[#E5E3DB] bg-white">
     <div class="flex items-start justify-between border-b border-[#E5E3DB] bg-[#FCFBF8] px-8 py-6">
@@ -13,7 +13,7 @@
             <h1 class="font-display text-3xl font-semibold text-[#16213A]">{{ $class['name'] }}</h1>
             <p class="mt-1 font-mono text-xs text-slate-500">Tingkat {{ $class['grade'] }}</p>
         </div>
-        <a href="{{ route('Classes.edit', $class['id']) }}"
+        <a href="{{ route('classes.edit', $class['id']) }}"
             class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">Ubah</a>
     </div>
 
@@ -37,8 +37,8 @@
     </dl>
 
     <div class="flex justify-end gap-4 border-t border-[#E5E3DB] px-8 py-5">
-        <a href="{{ route('Classes.index') }}" class="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#16213A]">Kembali</a>
-        <form action="{{ route('Classes.destroy', $class['id']) }}" method="POST" onsubmit="return confirm('Hapus data kelas ini?')">
+        <a href="{{ route('classes.index') }}" class="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#16213A]">Kembali</a>
+        <form action="{{ route('classes.destroy', $class['id']) }}" method="POST" onsubmit="return confirm('Hapus data kelas ini?')">
             @csrf
             @method('DELETE')
             <button type="submit"

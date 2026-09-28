@@ -1,12 +1,12 @@
 <?php
 
-use App\Http\Controllers\Classes\IndexController;
-use App\Http\Controllers\Classes\ShowController;
-use App\Http\Controllers\Classes\CreateController;
-use App\Http\Controllers\Classes\EditController;
-use App\Http\Controllers\Classes\StoreController;
-use App\Http\Controllers\Classes\UpdateController;
-use App\Http\Controllers\Classes\DestroyController;
+use App\Http\Controllers\classes\IndexController;
+use App\Http\Controllers\classes\ShowController;
+use App\Http\Controllers\classes\CreateController;
+use App\Http\Controllers\classes\EditController;
+use App\Http\Controllers\classes\StoreController;
+use App\Http\Controllers\classes\UpdateController;
+use App\Http\Controllers\classes\DestroyController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\MajorController;
@@ -39,7 +39,7 @@ Route::get('/create', [StudentController::class, 'create'])->name('create');
 //     return "menampilkan detail siswa dengan ID: {$id}"; // -> return value
 // })->name('show'); // -> beri nama
 
-Route::get('/{id}',[StudentController::class, 'show'])->name('show'); // -> beri nama
+Route::get('/{student}',[StudentController::class, 'show'])->name('show'); // -> beri nama
 
 
 
@@ -49,7 +49,7 @@ Route::get('/{id}',[StudentController::class, 'show'])->name('show'); // -> beri
 //     return "ini adalah halaman edit siswa dengan ID : {$id}"; // -> return value ke web
 // })->name('edit');
 
-Route::get('/{id}/edit', [StudentController::class, 'edit'])->name('edit');
+Route::get('/{student}/edit', [StudentController::class, 'edit'])->name('edit');
 
 // logika tambah siswa
 
@@ -65,7 +65,7 @@ Route::post('', [StudentController::class, 'store'])->name('store');
 //     return "mengedit siswa dari id : {$id}";
 // })->name('update');
 
-Route::put('/{id}', [StudentController::class, 'update'])->name('update');
+Route::put('/{student}', [StudentController::class, 'update'])->name('update');
 
 // logika hapus siswa
 
@@ -73,7 +73,7 @@ Route::put('/{id}', [StudentController::class, 'update'])->name('update');
 //     return "menghapus data siswa dengan id : {$id}";
 // })->name('destroy');
 
-Route::delete('/{id}', [StudentController::class, 'destroy'])->name('destroy');
+Route::delete('/{student}', [StudentController::class, 'destroy'])->name('destroy');
 });
 
 // management data siswa
@@ -137,7 +137,7 @@ Route::delete('/{id}', [TeacherController::class, 'destroy'])->name('destroy');
 });
 
 // // manajemen data guru (invokable)
-Route::name('Classes.')->prefix('Classes')->group(function(){ 
+Route::name('classes.')->prefix('classes')->group(function(){ 
 // halaman daftar guru
 Route::get('/', IndexController::class)->name('index');
 

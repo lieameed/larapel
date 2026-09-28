@@ -5,12 +5,12 @@
 @section('content')
 
 <div class="mb-8 border-b border-[#E5E3DB] pb-5">
-    <a href="{{ route('Classes.index') }}" class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Data Kelas</a>
+    <a href="{{ route('classes.index') }}" class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Data Kelas</a>
     <h1 class="font-display mt-2 text-3xl font-semibold text-[#16213A]">Tambah Kelas Baru</h1>
     <p class="mt-1 text-sm text-slate-500">Isi data untuk mendaftarkan kelas baru ke sistem.</p>
 </div>
 
-<form action="{{ route('Classes.store') }}" method="POST" class="space-y-6 border border-[#E5E3DB] bg-white p-8">
+<form action="{{ route('classes.store') }}" method="POST" class="space-y-6 border border-[#E5E3DB] bg-white p-8">
     @csrf
 
     <div>
@@ -53,7 +53,7 @@
     </div>
 
     <div class="flex justify-end gap-4 border-t border-[#EFEDE6] pt-6">
-        <a href="{{ route('Classes.index') }}" class="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#16213A]">Batal</a>
+        <a href="{{ route('classes.index') }}" class="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#16213A]">Batal</a>
         <button type="submit"
             class="bg-[#16213A] px-6 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">Simpan Data Kelas</button>
     </div>
