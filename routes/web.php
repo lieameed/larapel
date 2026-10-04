@@ -11,13 +11,22 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\MajorController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+//auth
+
+route::get('/login', [AuthController::class, 'loginView'])->name('login-view')->middleware('guest');
+route::post('/login', [AuthController::class, 'loginPost'])->name('login-post')->middleware('guest');
+route::get('/register', [AuthController::class, 'registerView'])->name('register-view')->middleware('guest');
+route::post('/register', [AuthController::class, 'registerPost'])->name('register-post')->middleware('guest');
+route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+
 // management data siswa
-Route::name('students.')->prefix('students')->group(function(){ // -> ada beberpa bagian yang penting disini, guna prefix agar nama web gaperlu diketik ulang misal "/students/..." jadi "/...", dan fucntion name yang membuat kita tidak perlu tambahkan students. di function name masing masing, serta group buat ngegroup/ngegabungkan keseluruhannya
+Route::name('students.')->middleware('role:student,teacher', 'auth')->prefix('students')->group(function(){ // -> ada beberpa bagian yang penting disini, guna prefix agar nama web gaperlu diketik ulang misal "/students/..." jadi "/...", dan fucntion name yang membuat kita tidak perlu tambahkan students. di function name masing masing, serta group buat ngegroup/ngegabungkan keseluruhannya
     // halaman daftar siswa
 
 // Route::get('/', function() { // -> ciptakan new page untuk web dengan menambahkan /students disampingnya
@@ -77,7 +86,7 @@ Route::delete('/{student}', [StudentController::class, 'destroy'])->name('destro
 });
 
 // management data siswa
-Route::name('teachers.')->prefix('teachers')->group(function(){ // -> ada beberpa bagian yang penting disini, guna prefix agar nama web gaperlu diketik ulang misal "/students/..." jadi "/...", dan fucntion name yang membuat kita tidak perlu tambahkan students. di function name masing masing, serta group buat ngegroup/ngegabungkan keseluruhannya
+Route::name('teachers.')->middleware('role:teacher', 'auth')->prefix('teachers')->group(function(){ // -> ada beberpa bagian yang penting disini, guna prefix agar nama web gaperlu diketik ulang misal "/students/..." jadi "/...", dan fucntion name yang membuat kita tidak perlu tambahkan students. di function name masing masing, serta group buat ngegroup/ngegabungkan keseluruhannya
     // halaman daftar siswa
 
 // Route::get('/', function() { // -> ciptakan new page untuk web dengan menambahkan /students disampingnya
@@ -137,7 +146,7 @@ Route::delete('/{id}', [TeacherController::class, 'destroy'])->name('destroy');
 });
 
 // // manajemen data guru (invokable)
-Route::name('classes.')->prefix('classes')->group(function(){ 
+Route::name('classes.')->middleware('role:teacher', 'auth')->prefix('classes')->group(function(){ 
 // halaman daftar guru
 Route::get('/', IndexController::class)->name('index');
 
@@ -160,4 +169,4 @@ Route::put('/{id}', UpdateController::class)->name('update');
 Route::delete('/{id}', DestroyController::class)->name('destroy');
 });
 
-Route::resource('majors', MajorController::class);
+Route::resource('majors', MajorController::class)->middleware(['auth', 'role:teacher']);
