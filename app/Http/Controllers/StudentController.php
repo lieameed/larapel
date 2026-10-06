@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
-    public function index(Request $request) // -> buat functiom baru dengan nama index
+    public function index(Request $request)
     {
         $title = 'sistem sekolah - daftar siswa';
         $search = $request->query('search');
@@ -37,7 +37,7 @@ class StudentController extends Controller
             'classes' => $classes,
             'majors' => $majors
         ]);
-        // return "ini adalah halaman daftar siswa"; // -> yang memakai class function index bakalan ngereturn ini di webnya
+     
         return view('students.index', [
             'title' => $title, 
             'students' => $students
